@@ -19,7 +19,9 @@ namespace Blzr.Client.Services
 
         public async Task<IEnumerable<WeatherForecast>> GetWeatherForecasts()
         {
-            return await _httpClient.GetFromJsonAsync<IEnumerable<WeatherForecast>>("sample-data/weather.json");
+#pragma warning disable CS8603 // Possible null reference return.
+            return await _httpClient.GetFromJsonAsync<IEnumerable<WeatherForecast>>("WeatherForecast");
+#pragma warning restore CS8603 // Possible null reference return.
         }
     }
 }
