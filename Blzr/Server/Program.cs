@@ -4,7 +4,7 @@ using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddDbContext<Blzr.Server.Data.BlzrDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 

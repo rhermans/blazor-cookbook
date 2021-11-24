@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Blzr.Server.Data;
+using Blzr.Shared;
 
 namespace Blzr.Server.Controllers
 {
@@ -13,9 +14,9 @@ namespace Blzr.Server.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly BlzrContext _context;
+        private readonly BlzrDbContext _context;
 
-        public UsersController(BlzrContext context)
+        public UsersController(BlzrDbContext context)
         {
             _context = context;
         }
