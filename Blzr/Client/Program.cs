@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Fluxor;
 using MudBlazor.Services;
 
 
@@ -21,6 +22,13 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddScoped<IWeatherForecastService, WeatherForecastService>();
 builder.Services.AddScoped<IUserService, UserService>();
 
+builder.Services.AddFluxor(config =>
+{
+    config
+        .ScanAssemblies(typeof(Program).Assembly)
+        .UseReduxDevTools();
+
+});
 //builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddMudServices();
