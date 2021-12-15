@@ -7,8 +7,8 @@ namespace Blzr.Client.Store.UserStore
     {
         public bool Initialized { get; init; }
         public bool Loading { get; init; }
-        public User[] Users { get; init; }
-
+        //public User[] Users { get; init; }
+        public IEnumerable<User>? Users { get; init; }
     }
 
     public class UserFeature : Feature<UserState>
@@ -21,7 +21,7 @@ namespace Blzr.Client.Store.UserStore
             {
                 Initialized = false,
                 Loading = false,
-                Users = Array.Empty<User>()
+                Users = Enumerable.Empty<User>()
             };
     }
 }
