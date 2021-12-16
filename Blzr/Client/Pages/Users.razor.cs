@@ -31,7 +31,7 @@ namespace Blzr.Client.Pages
            if (userState.Value.Initialized==false)
            {
                LoadUsers();
-               dispatcher.Dispatch(new UserStore_SetInitializedAction());
+               dispatcher.Dispatch(new SetInitializedAction());
                
            }
 
@@ -40,7 +40,7 @@ namespace Blzr.Client.Pages
 
         private void LoadUsers()
         {
-            dispatcher.Dispatch(new UserStore_LoadUsersAction());
+            dispatcher.Dispatch(new LoadUsersAction());
         }
 
     }

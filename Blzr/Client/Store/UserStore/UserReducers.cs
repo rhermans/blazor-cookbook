@@ -2,20 +2,20 @@
 
 namespace Blzr.Client.Store.UserStore
 {
-    public static class UserStore_Reducers
+    public static class UserReducers
     {
-
+        //SetUsersAction
         [ReducerMethod]
-        public static UserState OnSetUsers(UserState state, UserStore_SetUsersAction action)
+        public static UserState OnSetUsers(UserState state, SetUsersAction action)
         {
             return state with
             {
                 Users = action._users
             };
         }
-
+        //SetLoadingAction
         [ReducerMethod]
-        public static UserState OnSetLoading(UserState state, UserStore_SetLoadingAction action)
+        public static UserState OnSetLoading(UserState state, SetLoadingAction action)
         {
             return state with
             {
@@ -23,7 +23,8 @@ namespace Blzr.Client.Store.UserStore
             };
         }
 
-        [ReducerMethod(typeof(UserStore_SetInitializedAction))]
+        //SetInitializedAction
+        [ReducerMethod(typeof(SetInitializedAction))]
         public static UserState OnSetInitialized(UserState state)
         {
             return state with
