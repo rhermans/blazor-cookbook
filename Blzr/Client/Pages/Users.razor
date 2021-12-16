@@ -8,7 +8,7 @@
             <MudText Typo="Typo.subtitle1">Just get some data from the api.</MudText>
         </MudItem>
         <MudItem xs="4" sm="8" md="8">
-            <MudTable Items="@users" Hover="true" Breakpoint="Breakpoint.Md" Loading="@loading"
+            <MudTable Items="@users" Hover="true" Breakpoint="Breakpoint.Md" Loading="@(users==null)"
                       LoadingProgressColor="Color.Info">
                 <HeaderContent>
                     <MudTh>Name</MudTh>
@@ -25,4 +25,4 @@
             </MudTable>
         </MudItem>
     </MudGrid>
-
+<button class="btn btn-outline-info" @onclick="LoadUsers">Refresh Users ! ... error in initialized, data is loaded in store but not shown</button>

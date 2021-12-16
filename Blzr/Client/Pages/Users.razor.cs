@@ -23,28 +23,24 @@ namespace Blzr.Client.Pages
         [Inject ]
         public IState<UserState> userState { get; set; }
 
-        [Inject]
-        public IUserService UserService { get; set; }
+        //[Inject]
+        //public IUserService UserService { get; set; }
 
-        protected override async Task OnInitializedAsync()
+        protected override  void OnInitialized()
         {
            if (userState.Value.Initialized==false)
            {
-               await LoadUsers();
+               LoadUsers();
                dispatcher.Dispatch(new UserStore_SetInitializedAction());
+               
            }
 
-           await base.OnInitializedAsync();
+            base.OnInitialized();
         }
 
-        private async Task LoadUsers()
+        private void LoadUsers()
         {
-            dispatcher.Dispatch((new UserStore_SetLoadingAction(true)));
-            var users = await UserService.GetUsers();
-            dispatcher.Dispatch(new UserStore_SetUsersAction(users));
-            dispatcher.Dispatch(new UserStore_SetLoadingAction(false));
-
-
+            dispatcher.Dispatch(new UserStore_LoadUsersAction());
         }
 
     }
