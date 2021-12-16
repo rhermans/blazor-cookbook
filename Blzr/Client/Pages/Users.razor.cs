@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using Blzr.Client.Store.UserStore;
 using Fluxor;
+using MudBlazor;
 
 
 namespace Blzr.Client.Pages
@@ -23,8 +24,10 @@ namespace Blzr.Client.Pages
         [Inject ]
         public IState<UserState> userState { get; set; }
 
-        //[Inject]
-        //public IUserService UserService { get; set; }
+        [Inject]
+        private ISnackbar Snackbar  {get; set; }
+
+    
 
         protected override  void OnInitialized()
         {
@@ -35,12 +38,21 @@ namespace Blzr.Client.Pages
                
            }
 
-            base.OnInitialized();
+           SubscribeToAction<LoadUsersAction>(ShowUsersLoaded);
+           base.OnInitialized();
+            
         }
 
         private void LoadUsers()
         {
             dispatcher.Dispatch(new LoadUsersAction());
+        }
+
+        private void ShowUsersLoaded(LoadUsersAction action)
+        {
+            Snackbar.Configuration.SnackbarVariant = Variant.Outlined;
+            Snackbar.Configuration.MaxDisplayedSnackbars = 10;
+            Snackbar.Add($"Users are reloaded", Severity.Info);
         }
 
     }
