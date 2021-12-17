@@ -1,5 +1,4 @@
-﻿
-using Blzr.Shared;
+﻿using Blzr.Shared;
 using Microsoft.EntityFrameworkCore;
 
 namespace Blzr.Server.Data

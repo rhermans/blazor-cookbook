@@ -13,13 +13,14 @@ namespace Blzr.Client.Store.UserStore
                 Users = action._users
             };
         }
+
         //SetLoadingAction
         [ReducerMethod]
         public static UserState OnSetLoading(UserState state, SetLoadingAction action)
         {
             return state with
             {
-                Loading = action._loading 
+                Loading = action._loading
             };
         }
 
@@ -32,18 +33,5 @@ namespace Blzr.Client.Store.UserStore
                 Initialized = true
             };
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

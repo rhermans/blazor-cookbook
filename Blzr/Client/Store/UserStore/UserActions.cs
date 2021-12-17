@@ -2,11 +2,16 @@
 
 namespace Blzr.Client.Store.UserStore
 {
-    public class LoadUsersAction { }
+    public class LoadUsersAction
+    {
+    }
 
-    public class SetInitializedAction { }
+    public class SetInitializedAction
+    {
+    }
 
-    public class SetLoadingAction {
+    public class SetLoadingAction
+    {
         public bool _loading { get; }
 
         public SetLoadingAction(bool loading)
@@ -24,5 +29,4 @@ namespace Blzr.Client.Store.UserStore
             _users = users;
         }
     }
-
 }

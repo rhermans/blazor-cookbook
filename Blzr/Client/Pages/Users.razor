@@ -8,7 +8,7 @@
         <MudText Typo="Typo.subtitle1">Just get some data from the api.</MudText>
     </MudItem>
     <MudItem xs="4" sm="8" md="8">
-        <MudTable Items="@users" Hover="true" Breakpoint="Breakpoint.Md" Loading="@(users==null)"
+        <MudTable Items="@users" Hover="true" Breakpoint="Breakpoint.Md" Loading="@(users == null)"
                   LoadingProgressColor="Color.Info">
             <HeaderContent>
                 <MudTh>Name</MudTh>
@@ -25,4 +25,3 @@
     </MudItem>
 </MudGrid>
 <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="@(() => LoadUsers())">Refresh Users </MudButton>
-
