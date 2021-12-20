@@ -13,10 +13,12 @@ namespace Blzr.Client.Services
             this._httpClient = httpClient;
         }
 
-        public async Task<HttpResponseMessage> AddMetatag(Metatag metatag)
+        public async Task<Metatag> AddMetatag(Metatag metatag)
         {
-            return await _httpClient.PostAsJsonAsync<Metatag>($"api/metatags", metatag);
-          
+            //throw new NotImplementedException();
+            var res =  await _httpClient.PostAsJsonAsync<Metatag>($"api/metatags", metatag);
+            metatag = await res.Content.ReadFromJsonAsync<Metatag>();
+            return metatag;
 
         }
 
@@ -26,9 +28,9 @@ namespace Blzr.Client.Services
             return await _httpClient.DeleteAsync($"api/metatags/{Id}");      
         }
 
-        public Task<User> GetMetatag(int Id)
+        public async Task<Metatag> GetMetatag(int Id)
         {
-            throw new NotImplementedException();
+            return await _httpClient.GetFromJsonAsync<Metatag>($"api/metatags/{Id}");
         }
 
         public async Task<IEnumerable<Metatag>> GetMetatags()
@@ -36,10 +38,12 @@ namespace Blzr.Client.Services
             return await _httpClient.GetFromJsonAsync<IEnumerable<Metatag>>("api/metatags");
         }
 
-        public Task<Metatag> UpdateMetatag(Metatag metatag)
+        public async Task<HttpResponseMessage> UpdateMetatag(Metatag metatag)
         {
             //put -> returns HttpResponseMessage
-            throw new NotImplementedException();
+            var res = await _httpClient.PutAsJsonAsync<Metatag>($"api/metatags", metatag);
+            
+            return res;
         }
     }
 }

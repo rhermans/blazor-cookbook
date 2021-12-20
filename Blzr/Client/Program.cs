@@ -13,6 +13,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 
 builder.Services.AddScoped<IWeatherForecastService, WeatherForecastService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IMetatagService, MetatagService>();
 
 builder.Services.AddFluxor(config =>
 {

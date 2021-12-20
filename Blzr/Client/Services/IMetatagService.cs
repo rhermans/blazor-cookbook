@@ -6,10 +6,9 @@ namespace Blzr.Client.Services
     {
         //Task<IEnumerable<Employee>> Search(string name, Gender? gender);
         Task<IEnumerable<Metatag>> GetMetatags();
-        Task<User> GetMetatag(int Id);
-      
+        Task<Metatag> GetMetatag(int Id);
         Task<Metatag> AddMetatag(Metatag metatag);
-        Task<Metatag> UpdateMetatag(Metatag metatag);
+        Task<HttpResponseMessage> UpdateMetatag(Metatag metatag);
         Task<HttpResponseMessage> DeleteMetatag(int Id);
     }
 }
