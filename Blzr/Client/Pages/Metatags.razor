@@ -1,0 +1,28 @@
+﻿@page "/counter"
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+
+
+<MudGrid >
+    <MudItem xs="12" sm="12" md="12">
+        <MudText Typo="Typo.h3">Users</MudText>
+        <MudText Typo="Typo.subtitle1">Just get some data from the api.</MudText>
+    </MudItem>
+    <MudItem xs="4" sm="8" md="8">
+        <MudTable Items="@metatags" Hover="true" Breakpoint="Breakpoint.Md" Loading="@(metatags == null)"
+                  LoadingProgressColor="Color.Info">
+            <HeaderContent>
+                <MudTh>Id</MudTh>
+                <MudTh>Name</MudTh>
+                <MudTh>Description</MudTh>
+
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Id">@context.Id</MudTd>
+                <MudTd DataLabel="Name">@context.Name</MudTd>
+                <MudTd DataLabel="Description">@context.Description</MudTd>
+            </RowTemplate>
+        </MudTable>
+    </MudItem>
+</MudGrid>
+<MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="@(() => LoadMetatags())">Refresh Users </MudButton>
