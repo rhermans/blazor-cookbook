@@ -39,7 +39,7 @@ namespace Blzr.Client.Pages
         {
             Snackbar.Configuration.SnackbarVariant = Variant.Outlined;
             Snackbar.Configuration.MaxDisplayedSnackbars = 10;
-            Snackbar.Add($"Users are reloaded", Severity.Info);
+            Snackbar.Add($"Metatags are reloaded", Severity.Info);
         }
     }
 }
