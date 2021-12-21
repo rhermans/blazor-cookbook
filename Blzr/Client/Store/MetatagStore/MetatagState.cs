@@ -8,6 +8,7 @@ namespace Blzr.Client.Store.MetatagStore
         public bool Initialized { get;init;}
         public bool Loading { get; init; }
         public bool Updating { get; init; }
-        public IEnumerable<Metatag>? Metatags { get; init; }
+        //IEnumerator infrastructure in .NET is inherently mutable
+        public IEnumerable<Metatag>? Metatags { get; init;  }
     }
 }
