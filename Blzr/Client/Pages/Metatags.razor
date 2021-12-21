@@ -10,7 +10,7 @@
     </MudItem>
     <MudItem xs="4" sm="8" md="8">
         <MudTable Items="@metatags" Hover="true" Breakpoint="Breakpoint.Md" Loading="@(metatags == null)"
-                  LoadingProgressColor="Color.Info">
+                  LoadingProgressColor="Color.Info" CanCancelEdit="true" RowEditCommit="ItemHasBeenCommitted">
             <HeaderContent>
                 <MudTh>Id</MudTh>
                 <MudTh>Name</MudTh>
@@ -22,6 +22,15 @@
                 <MudTd DataLabel="Name">@context.Name</MudTd>
                 <MudTd DataLabel="Description">@context.Description</MudTd>
             </RowTemplate>
+            <RowEditingTemplate>
+                <MudTd DataLabel="Nr">@context.Id</MudTd>
+                <MudTd DataLabel="Name">
+                    <MudTextField @bind-Value="@context.Name" Required />
+                </MudTd>
+                <MudTd DataLabel="Description">
+                    <MudTextField @bind-Value="@context.Description" Required />
+                </MudTd>
+            </RowEditingTemplate>
         </MudTable>
     </MudItem>
 </MudGrid>

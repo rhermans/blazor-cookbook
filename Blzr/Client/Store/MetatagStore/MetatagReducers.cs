@@ -16,8 +16,8 @@ namespace Blzr.Client.Store.MetatagStore
         }
 
         //SetInitializedAction
-        [ReducerMethod(typeof(SetInitializedAction))]
-        public static MetatagState OnSetInitialized(MetatagState state)
+        [ReducerMethod(typeof(SetMetatagsInitializedAction))]
+        public static MetatagState OnSetMetatagsInitialized(MetatagState state)
         {
             return state with
             {
@@ -37,17 +37,22 @@ namespace Blzr.Client.Store.MetatagStore
 
 
         //SaveMetatagSuccesAction
+        [ReducerMethod]
         public static MetatagState OnSaveMetatagSuccesAction(MetatagState state, SaveMetatagSuccesAction action)
         {
-            var metatags = state.Metatags;
-            var metatag = metatags.First(x => x.Id == action.metatag.Id);
-            metatag = action.metatag;
+            return state;
+            //var metatags = state.Metatags;
+            //var metatag = metatags.First(x => x.Id == action.metatag.Id);
+            //metatag = action.metatag;
 
-            return state with
-            {
-                Metatags = metatags
-            };
+            //return state with
+            //{
+            //    Metatags = metatags
+            //};
         }
+
+
+ 
 
         public static MetatagState OnAddMetatagSuccesAction(MetatagState state, AddMetatagSuccesAction action)
         {

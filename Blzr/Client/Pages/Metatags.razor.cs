@@ -7,14 +7,16 @@ using SetInitializedAction = Blzr.Client.Store.UserStore.SetInitializedAction;
 
 namespace Blzr.Client.Pages
 {
-    public partial class Metatags 
+    public partial class Metatags
     {
-        private IEnumerable<Metatag> metatags => metatagState.Value.Metatags;
+
+        public string debug = "";
+        private  IEnumerable<Metatag> metatags => metatagState.Value.Metatags;
         private bool loading => metatagState.Value.Loading;
 
         [Inject] public IDispatcher dispatcher { get; set; }
 
-        [Inject] public IState<MetatagState> metatagState { get; set; }
+        [Inject] public  IState<MetatagState> metatagState { get; set; }
 
         [Inject] private ISnackbar Snackbar { get; set; }
 
@@ -23,7 +25,7 @@ namespace Blzr.Client.Pages
             if (metatagState.Value.Initialized == false)
             {
                 LoadMetatags();
-                dispatcher.Dispatch(new SetInitializedAction());
+                dispatcher.Dispatch(new SetMetatagsInitializedAction());
             }
 
             SubscribeToAction<LoadMetatagsAction>(ShowMetatagsLoaded);
@@ -34,6 +36,15 @@ namespace Blzr.Client.Pages
         {
             dispatcher.Dispatch(new LoadMetatagsAction());
         }
+
+
+        private void ItemHasBeenCommitted(object metatag)
+        {
+        
+            dispatcher.Dispatch(new SaveMetatagAction((Metatag) metatag));
+           
+        }
+
 
         private void ShowMetatagsLoaded(LoadMetatagsAction action)
         {
