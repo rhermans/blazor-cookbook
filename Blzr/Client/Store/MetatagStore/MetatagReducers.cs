@@ -40,15 +40,13 @@ namespace Blzr.Client.Store.MetatagStore
         [ReducerMethod]
         public static MetatagState OnSaveMetatagSuccesAction(MetatagState state, SaveMetatagSuccesAction action)
         {
-            return state;
-            //var metatags = state.Metatags;
-            //var metatag = metatags.First(x => x.Id == action.metatag.Id);
-            //metatag = action.metatag;
+            //the metatagstate contains an enumerable<T> - and this is in c# alway muttable
+            //so it has no use to update the state because its already updated.
+            //still searching for a descent solution to implement fluxor/redux/flux pattern
+            //in truth this static method can be removed as it is now implemented.
+            //BUT !!! keep this class - c# might learn how to use immutable
 
-            //return state with
-            //{
-            //    Metatags = metatags
-            //};
+            return state;
         }
 
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using System.Collections.ObjectModel;
+using Microsoft.AspNetCore.Components;
 using Blzr.Client.Store.MetatagStore;
 using Blzr.Shared;
 using Fluxor;
@@ -12,6 +13,7 @@ namespace Blzr.Client.Pages
 
         public string debug = "";
         private  IEnumerable<Metatag> metatags => metatagState.Value.Metatags;
+        
         private bool loading => metatagState.Value.Loading;
 
         [Inject] public IDispatcher dispatcher { get; set; }
@@ -51,6 +53,10 @@ namespace Blzr.Client.Pages
             Snackbar.Configuration.SnackbarVariant = Variant.Outlined;
             Snackbar.Configuration.MaxDisplayedSnackbars = 10;
             Snackbar.Add($"Metatags are reloaded", Severity.Info);
+        }
+
+        public void AddNewLine(){
+
         }
     }
 }

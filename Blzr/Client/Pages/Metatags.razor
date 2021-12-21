@@ -15,12 +15,13 @@
                 <MudTh>Id</MudTh>
                 <MudTh>Name</MudTh>
                 <MudTh>Description</MudTh>
-
+                <MudTh></MudTh>
             </HeaderContent>
             <RowTemplate>
                 <MudTd DataLabel="Id">@context.Id</MudTd>
                 <MudTd DataLabel="Name">@context.Name</MudTd>
                 <MudTd DataLabel="Description">@context.Description</MudTd>
+                <MudTd>Del</MudTd>
             </RowTemplate>
             <RowEditingTemplate>
                 <MudTd DataLabel="Nr">@context.Id</MudTd>
@@ -30,8 +31,21 @@
                 <MudTd DataLabel="Description">
                     <MudTextField @bind-Value="@context.Description" Required />
                 </MudTd>
+                <MudTd></MudTd>
             </RowEditingTemplate>
+            
         </MudTable>
     </MudItem>
 </MudGrid>
 <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="@(() => LoadMetatags())">Refresh Metatags </MudButton>
+<MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="@(() => AddNewLine())" 
+>Add </MudButton>
+
+<MudItem xs="4" sm="4" md="4">
+    <MudText >Name</MudText>
+</MudItem>
+<MudItem xs="8" sm="8" md="4">
+    <MudText >Name</MudText>
+</MudItem>
+
+
