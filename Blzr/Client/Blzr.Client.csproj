@@ -20,8 +20,4 @@
     <ProjectReference Include="..\Shared\Blzr.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="CodeGeneration\" />
-  </ItemGroup>
-
 </Project>
